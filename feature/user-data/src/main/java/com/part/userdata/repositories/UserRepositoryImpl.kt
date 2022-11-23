@@ -1,14 +1,19 @@
 package com.part.userdata.repositories
 
+import com.part.userdata.datasource.UserLocalDataSource
 import com.part.userdata.datasource.UserRemoteDataSource
-import com.part.userdomain.model.User
+import com.part.userdomain.model.UserEntity
 import com.part.userdomain.repositories.UserRepository
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(
-    private val userRemoteDataSource: UserRemoteDataSource
+    private val userRemoteDataSource: UserRemoteDataSource,
+    private val userLocalDataSource: UserLocalDataSource
 ) : UserRepository {
-    override suspend fun getUsers(): List<User> {
-        return userRemoteDataSource.getUser()
+    override suspend fun getUsers(): List<UserEntity> {
+        val user = userRemoteDataSource.getUser()
+        userLocalDataSource.insertUsers(user.map { it.toEntity() })
+        return userLocalDataSource.getAllUsers()
+
     }
 }

@@ -10,4 +10,11 @@ data class User(
     @SerialName("first_name") val firstName: String,
     val email: String,
     val avatar: String
-)
+) {
+    fun toEntity(): UserEntity = UserEntity(
+        firstName = firstName,
+        lastName = lastName,
+        email = email,
+        avatar = avatar
+    )
+}
