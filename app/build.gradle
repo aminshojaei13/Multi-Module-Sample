@@ -73,9 +73,9 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.44"
     kapt "com.google.dagger:hilt-compiler:2.44"
     implementation "androidx.navigation:navigation-compose:2.5.3"
-    implementation project(path: ':feature:user:userui')
+    implementation project(path: ':feature:user-ui')
+    implementation project(path: ':feature:user-domain')
 
-    implementation project(path: ':feature:user:userdomain')
-    implementation project(path: ':feature:user:userdata')
+    implementation project(path: ':feature:user-data')
     implementation project(path: ':di')
 }

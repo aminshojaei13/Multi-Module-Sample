@@ -14,7 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Multi Module Sample"
 include ':app'
-include ':feature:user:userui'
-include ':feature:user:userdata'
-include ':feature:user:userdomain'
+include ':feature:user-ui'
+include ':feature:user-data'
+include ':feature:user-domain'
 include ':di'
