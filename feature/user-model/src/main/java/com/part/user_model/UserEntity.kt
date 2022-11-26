@@ -1,4 +1,4 @@
-package com.part.userdomain.model
+package com.part.user_model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

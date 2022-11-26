@@ -2,8 +2,8 @@ package com.part.di
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.part.user_model.UserEntity
 import com.part.userdata.db.UserDatabase
-import com.part.userdomain.model.UserEntity
 
 @Database(
     entities = [

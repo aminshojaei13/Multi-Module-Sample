@@ -3,7 +3,6 @@ package com.part.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.part.userdomain.intractors.GetUsersUseCase
-import com.part.userdomain.model.UserEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
@@ -14,7 +13,7 @@ class UserViewModel @Inject constructor(
     private val getUsersUseCase: GetUsersUseCase,
 ) : ViewModel() {
 
-    val usersFlow = MutableStateFlow<List<UserEntity>>(listOf())
+    val usersFlow = MutableStateFlow<List<com.part.user_model.UserEntity>>(listOf())
 
     init {
         viewModelScope.launch {

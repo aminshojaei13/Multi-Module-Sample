@@ -2,15 +2,15 @@ package com.part.userdata.db
 
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.part.userdomain.model.UserEntity
 
 @Dao
 interface UserDao {
 
-    @Insert
-    suspend fun insertUsers(list: List<UserEntity>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertUsers(list: List<com.part.user_model.UserEntity>)
 
     @Query("SELECT * FROM user")
-    suspend fun getAllUsers(): List<UserEntity>
+    suspend fun getAllUsers(): List<com.part.user_model.UserEntity>
 }
