@@ -7,10 +7,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.rememberNavController
+import androidx.navigation.NavController
 import com.part.MultiModuleSample.ui.theme.MultiModuleSampleTheme
-import com.part.ui.userNavGraph
+import com.ramcosta.composedestinations.DestinationsNavHost
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
+import com.ramcosta.composedestinations.navigation.dependency
+import com.ramcosta.composedestinations.scope.DestinationScope
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,15 +25,18 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    val navController = rememberNavController()
-                    NavHost(
-                        navController = navController,
-                        startDestination = "navGraph"
-                    ){
-                        userNavGraph(navController)
-                    }
+                    DestinationsNavHost(
+                        navGraph = MainNavGraphs,
+                        dependenciesContainerBuilder = {
+                            dependency(AppNavigator(navController))
+                        }
+                    )
                 }
             }
         }
     }
+}
+
+fun DestinationScope<*>.currentNavigator(navigator: NavController): AppNavigator {
+    return AppNavigator(navigator)
 }
