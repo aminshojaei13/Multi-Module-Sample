@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.part.MultiModuleSample.ui.theme.MultiModuleSampleTheme
+import com.part.ui.secondNavGraph
 import com.part.ui.userNavGraph
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,9 +27,10 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     NavHost(
                         navController = navController,
-                        startDestination = "navGraph"
+                        startDestination = "user-ui"
                     ){
                         userNavGraph(navController)
+                        secondNavGraph(navController)
                     }
                 }
             }

@@ -79,4 +79,6 @@ dependencies {
     implementation project(path: ':feature:user-domain')
     implementation project(path: ':di')
     implementation project(path: ':common:common-data')
+    implementation project(path: ':common:common-ui')
+    implementation project(path: ':second feature:user-ui-second')
 }
