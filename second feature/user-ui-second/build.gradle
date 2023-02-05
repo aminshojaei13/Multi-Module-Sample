@@ -3,22 +3,10 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.dagger.hilt.android'
     id 'kotlin-kapt'
-    id 'com.google.devtools.ksp' version '1.7.21-1.0.8'
-}
-
-kotlin {
-    sourceSets {
-        debug {
-            kotlin.srcDir("build/generated/ksp/debug/kotlin")
-        }
-        release {
-            kotlin.srcDir("build/generated/ksp/release/kotlin")
-        }
-    }
 }
 
 android {
-    namespace 'com.part.ui'
+    namespace 'com.part.ui.user'
     compileSdk 33
 
     defaultConfig {
@@ -50,11 +38,6 @@ android {
     }
 }
 
-ksp {
-    arg("compose-destinations.mode", "navgraphs")
-    arg("compose-destinations.moduleName", "userUi")
-}
-
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.8.0'
@@ -78,8 +61,4 @@ dependencies {
     kapt "com.google.dagger:hilt-compiler:2.44"
     implementation "androidx.navigation:navigation-compose:2.5.3"
     implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
-
-
-    implementation 'io.github.raamcosta.compose-destinations:core:1.7.27-beta'
-    ksp 'io.github.raamcosta.compose-destinations:ksp:1.7.27-beta'
 }
