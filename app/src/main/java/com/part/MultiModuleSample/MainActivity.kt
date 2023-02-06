@@ -8,8 +8,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
+import com.part.MultiModuleSample.ui.theme.AppNavigator
 import com.part.MultiModuleSample.ui.theme.MultiModuleSampleTheme
-import com.part.ui.secondNavGraph
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.ramcosta.composedestinations.navigation.dependency
@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     DestinationsNavHost(
-                        navGraph = MainNavGraphs,
+                        navGraph = MainNavGraph.root,
                         dependenciesContainerBuilder = {
                             dependency(AppNavigator(navController))
                         }
@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
+/*
 fun DestinationScope<*>.currentNavigator(navigator: NavController): AppNavigator {
     return AppNavigator(navigator)
-}
+}*/

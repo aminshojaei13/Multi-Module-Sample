@@ -16,7 +16,6 @@ import com.amin.common_ui.MultiModuleScreens
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @RootNavGraph(start = true) // sets this as the start destination of the default nav graph
 @Destination
@@ -37,12 +36,6 @@ fun UserScreen(
             item {
                 Button(onClick = { userUiNavigator.openSecond("amin and mohsen") }) {
                     Text(text = "go to next page")
-                }
-            }
-
-            item {
-                Button(onClick = {navController.navigate(MultiModuleScreens.Second.createRoute("amin"))}) {
-                    Text(text = "second page")
                 }
             }
         }

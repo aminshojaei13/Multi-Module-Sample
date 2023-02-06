@@ -9,13 +9,18 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.annotation.RootNavGraph
 
 @OptIn(ExperimentalMaterial3Api::class)
+@RootNavGraph(start = true) // sets this as the start destination of the default nav graph
+@Destination
 @Composable
 fun SecondPage(
-    navController: NavController
+    navController: NavController,
 ) {
     Scaffold { paddingValues ->
         LazyColumn(
@@ -24,7 +29,7 @@ fun SecondPage(
                 .fillMaxSize()
         ) {
             item() {
-                Text(text = "Hi from second page ")
+                Text(text = "Hi from ")
             }
         }
     }
