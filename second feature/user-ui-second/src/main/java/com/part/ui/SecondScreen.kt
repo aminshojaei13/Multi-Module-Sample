@@ -1,5 +1,6 @@
 package com.part.ui
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -7,11 +8,9 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.NavController
-import androidx.navigation.compose.currentBackStackEntryAsState
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
 
@@ -21,9 +20,12 @@ import com.ramcosta.composedestinations.annotation.RootNavGraph
 @Composable
 fun SecondPage(
     navController: NavController,
+    fullNamw: String = "saeed"
 ) {
     Scaffold { paddingValues ->
         LazyColumn(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
             modifier = Modifier
                 .padding(paddingValues)
                 .fillMaxSize()
@@ -34,3 +36,9 @@ fun SecondPage(
         }
     }
 }
+
+data class Friends(
+    val first: String,
+    val second: String?,
+    val third: String = "amin"
+)

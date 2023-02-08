@@ -4,17 +4,16 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
-import com.amin.common_ui.MultiModuleScreens
+import com.part.user_model.Diamond
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 @OptIn(ExperimentalMaterial3Api::class)
 @RootNavGraph(start = true) // sets this as the start destination of the default nav graph
@@ -34,7 +33,7 @@ fun UserScreen(
                 Text(text = "Hi amin shojaei")
             }
             item {
-                Button(onClick = { userUiNavigator.openSecond("amin and mohsen") }) {
+                Button(onClick = { userUiNavigator.openMidScreen(Json.encodeToString(Diamond())) }) {
                     Text(text = "go to next page")
                 }
             }
