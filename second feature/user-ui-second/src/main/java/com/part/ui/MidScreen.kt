@@ -10,6 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import com.part.user_model.Diamond
 import com.ramcosta.composedestinations.annotation.Destination
@@ -22,10 +24,8 @@ import kotlinx.serialization.json.Json
 @Composable
 fun MidPage(
     navController: NavController,
-    data: String
+    data: Diamond
 ) {
-
-    val name = Json.decodeFromString<Diamond>(data)
 
     Scaffold { paddingValues ->
         LazyColumn(
@@ -36,8 +36,14 @@ fun MidPage(
                 .fillMaxSize()
         ) {
             item() {
-                Text(text = "Hi from ${name.name}")
+                Text(text = "Hi from ${data.name} + ${data.age}")
             }
         }
     }
+}
+
+class Foo(
+    savedStateHandle: SavedStateHandle
+):ViewModel(){
+    val a = savedStateHandle.navArgs<Diamond>()
 }

@@ -33,7 +33,7 @@ fun UserScreen(
                 Text(text = "Hi amin shojaei")
             }
             item {
-                Button(onClick = { userUiNavigator.openMidScreen(Json.encodeToString(Diamond())) }) {
+                Button(onClick = { userUiNavigator.openMidScreen(Diamond("amin",20 )) }) {
                     Text(text = "go to next page")
                 }
             }

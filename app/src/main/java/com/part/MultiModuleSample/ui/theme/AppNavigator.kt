@@ -5,6 +5,7 @@ import com.part.ui.SecondFeatureNavigator
 import com.part.ui.UserUiNavigator
 import com.part.ui.destinations.MidPageDestination
 import com.part.ui.destinations.SecondPageDestination
+import com.part.user_model.Diamond
 import com.ramcosta.composedestinations.navigation.navigate
 
 class AppNavigator(private val navController: NavController) : UserUiNavigator,
@@ -13,7 +14,7 @@ class AppNavigator(private val navController: NavController) : UserUiNavigator,
         navController.navigate(SecondPageDestination.route)
     }
 
-    override fun openMidScreen(name: String) {
+    override fun openMidScreen(name: Diamond) {
         navController.navigate(MidPageDestination(name))
     }
 }
