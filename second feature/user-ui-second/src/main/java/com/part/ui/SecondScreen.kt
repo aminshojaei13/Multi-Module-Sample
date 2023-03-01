@@ -20,7 +20,7 @@ import com.ramcosta.composedestinations.annotation.RootNavGraph
 @Composable
 fun SecondPage(
     navController: NavController,
-    fullNamw: String = "saeed"
+    fullName: String = "saeed"
 ) {
     Scaffold { paddingValues ->
         LazyColumn(
@@ -36,9 +36,3 @@ fun SecondPage(
         }
     }
 }
-
-data class Friends(
-    val first: String,
-    val second: String?,
-    val third: String = "amin"
-)

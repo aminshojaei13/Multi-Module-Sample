@@ -16,8 +16,8 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 @OptIn(ExperimentalMaterial3Api::class)
-@RootNavGraph(start = true) // sets this as the start destination of the default nav graph
-@Destination
+@RootNavGraph(start = true)
+@Destination(style = SnapFadeAnim::class)
 @Composable
 fun UserScreen(
     userUiNavigator: UserUiNavigator,
@@ -33,7 +33,13 @@ fun UserScreen(
                 Text(text = "Hi amin shojaei")
             }
             item {
-                Button(onClick = { userUiNavigator.openMidScreen(Diamond("amin",20 )) }) {
+                Button(onClick = {
+                    userUiNavigator.openMidScreen(
+                        name = Diamond("amin", 20),
+                        duration = 10,
+                        leader = "ali"
+                    )
+                }) {
                     Text(text = "go to next page")
                 }
             }

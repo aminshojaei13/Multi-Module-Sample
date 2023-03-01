@@ -6,17 +6,6 @@ plugins {
     id 'com.google.devtools.ksp' version '1.7.21-1.0.8'
 }
 
-kotlin {
-    sourceSets {
-        debug {
-            kotlin.srcDir("build/generated/ksp/debug/kotlin")
-        }
-        release {
-            kotlin.srcDir("build/generated/ksp/release/kotlin")
-        }
-    }
-}
-
 android {
     namespace 'com.part.ui'
     compileSdk 33
@@ -27,6 +16,16 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+    }
+
+    android {
+        libraryVariants.all { variant ->
+            kotlin.sourceSets {
+                getByName(variant.name) {
+                    kotlin.srcDir("build/generated/ksp/${variant.name}/kotlin")
+                }
+            }
+        }
     }
 
     buildTypes {

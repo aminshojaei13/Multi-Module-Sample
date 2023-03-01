@@ -1,5 +1,8 @@
 package com.part.ui
 
+import com.part.user_model.Friends
+
 interface SecondFeatureNavigator {
-    fun openSecond(text:String)
+    fun navigateUp()
+    fun openSecond(friends: Friends)
 }
