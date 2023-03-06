@@ -11,9 +11,8 @@ import com.ramcosta.composedestinations.navigation.navigate
 
 class AppNavigator(private val navController: NavController) : UserUiNavigator,
     SecondFeatureNavigator {
-    override fun navigateUp(isKeyboardVisible: Boolean) {
-        if (!isKeyboardVisible)
-            navController.navigateUp()
+    override fun navigateUp() {
+        navController.navigateUp()
     }
 
     override fun openMidScreen(name: Diamond, duration: Int, leader: String) {

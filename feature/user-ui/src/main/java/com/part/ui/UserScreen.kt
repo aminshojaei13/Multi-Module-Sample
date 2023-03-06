@@ -17,7 +17,7 @@ import kotlinx.serialization.json.Json
 
 @OptIn(ExperimentalMaterial3Api::class)
 @RootNavGraph(start = true)
-@Destination(style = SnapFadeAnim::class)
+@Destination()
 @Composable
 fun UserScreen(
     userUiNavigator: UserUiNavigator,
